@@ -23,6 +23,9 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  String nombre = '';
+  String apellido = '';
+  String telefono = '';
   @override
   void initState() {
     super.initState();
@@ -69,6 +72,7 @@ class _MyAppState extends State<MyApp> {
                             margin: const EdgeInsets.all(8),
                             elevation: 2,
                             child: TextFormField(
+                              keyboardType: (e.titulo=='Telefono')?TextInputType.phone:TextInputType.text,
                               decoration: InputDecoration(
                                 labelText: e.titulo,
                                 hintText: e.titulo,
@@ -157,6 +161,9 @@ class _MyAppState extends State<MyApp> {
                   controlerApellido.text != '' &&
                   controlerTelefono.text != '') {
                 setState(() {
+                  nombre = controlerNombre.text;
+                  apellido = controlerApellido.text;
+                  telefono = controlerTelefono.text;
                   deactiv();
                 });
                 Navigator.push(
@@ -165,9 +172,9 @@ class _MyAppState extends State<MyApp> {
                       builder: (context) => MyDetalle(
                             chekersIngredient: chekers,
                             size: _radioValor,
-                            controlerNombre: controlerNombre,
-                            controlerApellido: controlerApellido,
-                            controlerTelefono: controlerTelefono,
+                            controlerNombre: nombre,
+                            controlerApellido: apellido,
+                            controlerTelefono: telefono,
                           )),
                 );
               } else {

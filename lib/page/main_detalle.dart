@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 
 class MyDetalle extends StatefulWidget {
   List<String> chekersIngredient;
-  TextEditingController controlerNombre;
-  TextEditingController controlerApellido;
-  TextEditingController controlerTelefono;
+  String controlerNombre;
+  String controlerApellido;
+  String controlerTelefono;
   int size;
   MyDetalle(
       {required this.chekersIngredient,
@@ -29,7 +29,7 @@ class _MyDetalleState extends State<MyDetalle> {
     super.initState();
     convertSize(valor: widget.size);
     body =
-        'Cliente: ${widget.controlerNombre.text + ' ' + widget.controlerApellido.text}\nTelefono: ${widget.controlerTelefono.text}\nOrdeno: Un Pizza $tamano de ${widget.chekersIngredient.join(',')}';
+        'Cliente: ${widget.controlerNombre + ' ' + widget.controlerApellido}\nTelefono: ${widget.controlerTelefono}\nOrdeno: Un Pizza $tamano de ${widget.chekersIngredient.join(',')}';
   }
 
   convertSize({required int valor}) {
