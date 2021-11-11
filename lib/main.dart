@@ -28,9 +28,20 @@ class _MyAppState extends State<MyApp> {
     super.initState();
   }
 
+  deactiv() {
+    controlerNombre.text = '';
+    controlerApellido.text = '';
+    controlerTelefono.text = '';
+    _radioValor = 0;
+    for (var f in checkboxs) {
+      f.valores = false;
+    }
+  }
+
   List<String> chekers = [];
   List size = [];
   int _radioValor = 0;
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -145,6 +156,9 @@ class _MyAppState extends State<MyApp> {
               if (controlerNombre.text != '' &&
                   controlerApellido.text != '' &&
                   controlerTelefono.text != '') {
+                setState(() {
+                  deactiv();
+                });
                 Navigator.push(
                   context,
                   MaterialPageRoute(
